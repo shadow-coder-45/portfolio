@@ -612,3 +612,36 @@ nav {
         margin: 5px;
     }
 }
+/* Add to your existing CSS */
+.dropdown {
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    transform: translateY(-500px);
+    width: 100%;
+    height: auto;
+    backdrop-filter: blur(4px) brightness(40%);
+    box-shadow: 0 0 20px black;
+    transition: 0.2s linear;
+    padding-top: 60px; /* Add space for the X button */
+}
+
+.cancel {
+    z-index: 1002; /* Ensure the cancel button is always clickable */
+}
+
+/* Improve mobile responsiveness */
+@media (max-width: 440px) {
+    .main-container .content h1,
+    .main-container .content .typewriter {
+        font-size: 1.8rem; /* Adjust font size for smaller screens */
+    }
+    
+    .main-container .content p {
+        font-size: 0.9rem;
+    }
+    
+    .project-card {
+        min-height: 400px; /* Set minimum height for project cards */
+    }
+}
