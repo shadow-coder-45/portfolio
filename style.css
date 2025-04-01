@@ -612,3 +612,65 @@ nav {
         margin: 5px;
     }
 }
+body {
+    padding-top: 10vh; /* Adjust the height to the navbar */
+}
+.hamburg, .cancel {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.hamburg.show, .cancel.show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.hamburg, .cancel {
+    opacity: 0;
+    transform: translateX(20px); /* You can adjust this value */
+}
+
+.nav-container .links a {
+    position: relative;
+    font-size: 1.2rem;
+    color: white;
+    margin: 0 20px;
+    text-decoration: none;
+    font-weight: 550;
+    transition: 0.3s linear, color 0.3s ease, border-color 0.3s ease;
+}
+
+.nav-container .links a:hover {
+    color: #077b32;
+    border-bottom: 3px solid #077b32; /* Smooth underline effect */
+}
+
+.main-container .image:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+}
+
+.content button:hover {
+    scale: 1.1;
+    color: #077b32;
+    border: 2px solid #077b32;
+    background-color: transparent;
+    font-weight: 700;
+    box-shadow: 0 0 40px #077b32, 0 0 10px #077b32; /* Added outer glow */
+}
+@media (max-width: 884px) {
+    #home {
+        text-align: center;
+    }
+}
+
+.content p,
+.projects-info p {
+    color: #f4f4f4; /* Lighter color for better contrast */
+}
+
+@media (max-width: 884px) {
+    .skills-grid,
+    .projects-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ensures better fitting on smaller screens */
+    }
+}

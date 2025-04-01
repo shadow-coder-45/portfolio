@@ -1,17 +1,11 @@
 // Navbar Toggle Logic
 const navbar = document.querySelector(".dropdown");
-const navLinks = document.querySelectorAll(".dropdown a");
 const hamburgIcon = document.querySelector(".hamburg");
 const cancelIcon = document.querySelector(".cancel");
 
 // Menu toggle function 
-function hamburg() {
-    navbar.classList.add("show");
-}
-
-// Menu close function
-function cancel() {
-    navbar.classList.remove("show");
+function toggleMenu() {
+    navbar.classList.toggle("show");
 }
 
 // Close menu when clicking outside
@@ -20,22 +14,19 @@ document.addEventListener("click", (event) => {
     if (navbar.classList.contains("show") && 
         !navbar.contains(event.target) && 
         !hamburgIcon.contains(event.target)) {
-        cancel();
+        toggleMenu();
     }
 });
 
 // Add touch support for better mobile experience
-hamburgIcon.addEventListener("touchstart", function(e) {
-    // Prevent default only on the hamburger icon
-    if (e.target === hamburgIcon || e.target.closest(".hamburg")) {
-        e.preventDefault();
-    }
-    hamburg();
+hamburgIcon.addEventListener("touchstart", (e) => {
+    e.preventDefault(); // Prevent default only when interacting with the hamburger
+    toggleMenu();
 }, { passive: false });
 
-cancelIcon.addEventListener("touchstart", function(e) {
+cancelIcon.addEventListener("touchstart", (e) => {
     e.preventDefault();
-    cancel();
+    toggleMenu();
 }, { passive: false });
 
 // Typewriter Effect
@@ -46,11 +37,10 @@ let charIndex = 0;
 let speed = 100;
 
 function typeWriter() {
-    if (charIndex === 0) {
-        textElement.innerHTML = ""; // Reset before typing
-    }
-    if (charIndex < texts[textIndex].length) {
-        textElement.innerHTML += texts[textIndex].charAt(charIndex);
+    let currentText = texts[textIndex];
+    
+    if (charIndex < currentText.length) {
+        textElement.innerHTML += currentText.charAt(charIndex);
         charIndex++;
         setTimeout(typeWriter, speed);
     } else {
