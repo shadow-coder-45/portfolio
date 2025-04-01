@@ -94,12 +94,12 @@ nav {
     z-index: 100;
     position: fixed;
     top: 0;
-    transform: translateY(-500px);
     width: 100%;
     height: auto;
     backdrop-filter: blur(4px) brightness(40%);
     box-shadow: 0 0 20px black;
     transition: 0.2s linear;
+    transform: translateY(0);
 }
 
 .dropdown .links a {
