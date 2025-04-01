@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // Improved Navbar Toggle Logic with better mobile support
 const navbar = document.querySelector(".dropdown");
 const navLinks = document.querySelectorAll(".dropdown a");
@@ -27,6 +28,40 @@ document.addEventListener("click", (event) => {
 
 // Enhanced Typewriter Effect with smoother transitions
 const texts = ["DEVELOPER", "CODER", "STUDENT", "PROBLEM SOLVER"];
+=======
+// Navbar functionality
+function hamburg() {
+    const navbar = document.querySelector(".dropdown");
+    navbar.style.transform = "translateY(0px)";
+    
+    // Add event listener to close navbar when clicking anywhere
+    setTimeout(() => {
+        document.addEventListener('click', closeNavbarOnClickOutside);
+    }, 10);
+}
+
+function cancel() {
+    const navbar = document.querySelector(".dropdown");
+    navbar.style.transform = "translateY(-500px)";
+    
+    // Remove the event listener
+    document.removeEventListener('click', closeNavbarOnClickOutside);
+}
+
+function closeNavbarOnClickOutside(event) {
+    const navbar = document.querySelector(".dropdown");
+    const hamburg = document.querySelector(".hamburg");
+    
+    // Close navbar if click is outside navbar and not on hamburger icon
+    if (!navbar.contains(event.target) && event.target !== hamburg) {
+        cancel();
+    }
+}
+
+// Typewriter effect
+const texts = ["DEVELOPER", "CODER", "STUDENT"];
+let speed = 100;
+>>>>>>> corrected-fix
 const textElement = document.querySelector(".typewriter-text");
 let textIndex = 0;
 let charIndex = 0;
@@ -64,6 +99,7 @@ function eraseText() {
     }
 }
 
+<<<<<<< HEAD
 // Resource optimization for animations
 // Pause animations when not in viewport to save resources
 const animatedSections = document.querySelectorAll("section");
@@ -156,3 +192,6 @@ window.addEventListener('load', function() {
         });
     }
 });
+=======
+window.onload = typeWriter;
+>>>>>>> corrected-fix
